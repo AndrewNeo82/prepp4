@@ -15,11 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django_summernote.admin import SummernoteModelAdmin
 
-
-@admin.register(Post)
-class PostAdmin(SummernoteModelAdmin):
-
-    summernote_fields = ('content')
-
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
+]
